@@ -14,8 +14,14 @@ module.exports = {
       {
         test: /\.(js|jsx)$/, // remove jsx
         exclude: /node_modules/,
-        loader: "babel-loader",
-      }
+        use: {
+          loader: "babel-loader",
+          // options: {
+          //   plugins: [["import", { libraryName: "antd", libraryDirectory: "es", style: "css" }]],
+          // },
+        },
+      },
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
     ],
   },
   resolve: {
