@@ -17,10 +17,10 @@ Server starts on [http://localhost:3000](http://localhost:3000), click the link 
 Browser renders full HTML instantly right after response and turns on SPA mode, providing high first-load speed and CSR speed on the rest of the HTML rendering.
 
 1. `webpack.config.js` creates `main.bundle.js`
-2. `./server/ssr.js` compiles isomorphic React.js code into HTML (SSR mode), attaches `main.bundle.js` to the HTML and sends it to the browser HTTP GET response.
+2. `./server/ssr.js` compiles isomorphic React.js code into HTML (SSR mode), attaches `main.bundle.js` to the HTML and sends it to the browser HTTP GET request.
 3. browser gets SSR'ed HTML parses attached `main.bundle.js` and enters SPA mode.
 
-## TODOs
+## TODO
 
 - [ ] Fix emoji encoding on the server side
 - [ ] Remove inline styling
