@@ -7,7 +7,6 @@ const Document = ({ children }) => (
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.2.0/antd.compact.min.css"
-        // href="https://cdnjs.cloudflare.com/ajax/libs/antd/4.2.0/antd.dark.min.css"
       />
     </head>
     <body>

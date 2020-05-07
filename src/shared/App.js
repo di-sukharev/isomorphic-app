@@ -49,10 +49,9 @@ const App = () => {
 
   const selectedPlace = places.selected;
   const { longitude, latitude } = selectedPlace;
-
   return (
-    <Layout>
-      <Header style={{minHeight: 100}}>
+    <Layout style={{ height: "100vh" }}>
+      <Header style={{ minHeight: "20%" }}>
         <Search
           places={places.all}
           dates={dates.all}
@@ -60,10 +59,10 @@ const App = () => {
           onDateChange={onDateChange}
         />
       </Header>
-      <Content>
+      <Content style={{ minHeight: "20%" }}>
         <Info place={places.selected} date={dates.selected} />
       </Content>
-      <Footer>
+      <Footer style={{ padding: 0, minHeight: "60%" }}>
         <Map lng={longitude} ltd={latitude} />
       </Footer>
     </Layout>

@@ -13,16 +13,12 @@ const Info = ({ place, date }) => {
   else if (pp < 100) weather = ` 🌧️ — ${pp}%`;
 
   return (
-    <Row
-      style={{ height: "100%", background: "white", padding: 20 }}
-      align="middle"
-      justify="center"
-    >
-      <Col span={8}>
+    <Row style={{ height: "100%", padding: 20 }} align="middle" justify="center">
+      <Col md={10}>
         <Text style={{ fontSize: 30 }}>{place.place_name}</Text>
         <Text style={{ fontSize: 50 }}>{weather}</Text>
       </Col>
-      <Col span={6}>
+      <Col md={8}>
         <div
           style={{
             backgroundImage: "linear-gradient(to right, #aad4e5, #f06d06)",

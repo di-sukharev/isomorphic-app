@@ -25,10 +25,10 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
 
   return (
     <Row style={{ height: "100%" }} align="middle" justify="center">
-      <Col span={4}>
+      <Col md={4}>
         <Text style={{ color: "white", fontSize: 50 }}>Weather</Text>
       </Col>
-      <Col span={8} offset={2}>
+      <Col md={8} offset={2}>
         <AutoComplete
           style={{
             width: "100%",
@@ -41,7 +41,7 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
           placeholder="What is your place?"
         />
       </Col>
-      <Col span={4} offset={1}>
+      <Col md={4} offset={1}>
         <DatePicker
           disabledDate={disabledDate}
           defaultValue={moment(dates[0], "YYYY-MM-DD")}
