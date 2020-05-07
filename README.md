@@ -1,6 +1,6 @@
 # isomorphic-app
 
-To launch an app:
+To launch an app in development mode:
 
 ```
 $ git clone git@github.com:di-sukharev/isomorphic-app.git
@@ -22,8 +22,15 @@ Browser renders full HTML instantly right after response and turns on SPA mode, 
 
 ## TODOs
 
-- [ ] Fix emoji encoding on server side
+- [ ] Fix emoji encoding on the server side
+- [ ] Remove inline styling
+- [ ] Make data.json parsing smarter, put it out of React components
 - [ ] Configure HMR
-- [ ] Configure babel to import css while SSR
+- [ ] Make UI more responsive and beautiful
+- [ ] Change embed iframe map to JS map
+- [ ] Add tests
+- [ ] Configure browser history context in <StaticRouter/> in SSR mode
+- [ ] Configure babel to import css while in SSR mode
 - [ ] Add typescript
-- [ ] Deploy production build
+- [ ] Optimize production build with webpack
+- [ ] Deploy
