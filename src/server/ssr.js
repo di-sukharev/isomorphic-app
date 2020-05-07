@@ -16,18 +16,6 @@ export default (req, res) => {
     </Document>
   );
 
-  /*
-  It can just be:
-    res.write(html);
-    res.end();
-  */
-  if (context.url) {
-    res.writeHead(301, {
-      Location: context.url,
-    });
-    res.end();
-  } else {
-    res.write(html);
-    res.end();
-  }
+  res.write(html);
+  res.end();
 };

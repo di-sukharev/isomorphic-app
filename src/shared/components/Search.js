@@ -17,7 +17,7 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
       names.filter(name => name.value && name.value.toLowerCase().includes(v.toLowerCase()))
     );
 
-  // disable inappropriate dates in <DatePicker/>
+  // disable non-existing in "data.json" dates in <DatePicker/>
   const disabledDate = current =>
     current &&
     (current < moment(dates[0], "YYYY-MM-DD") ||
@@ -33,12 +33,10 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
           style={{
             width: "100%",
           }}
-          // autoFocus
-          // defaultValue={options[0] && options[0].value}
           options={options}
           onSelect={onPlaceChange}
           onSearch={onSearch}
-          placeholder="What is your place?"
+          placeholder="Enter your city"
         />
       </Col>
       <Col md={4} offset={1}>
@@ -46,6 +44,7 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
           disabledDate={disabledDate}
           defaultValue={moment(dates[0], "YYYY-MM-DD")}
           onChange={onDateChange}
+          placeholder="Enter date"
         />
       </Col>
     </Row>

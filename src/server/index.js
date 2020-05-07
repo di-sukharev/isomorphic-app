@@ -15,8 +15,5 @@ app.use("/", express.static(buildPath));
 app.get("*", ssr);
 
 http.createServer(app).listen(app.get("port"), () => {
-  // eslint-disable-line no-console
-  console.log(`Express server started at: http://localhost:${app.get("port")}/`);
+  console.log(`Express server started at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });
-
-// module.exports = app;

@@ -1,10 +1,11 @@
 import React from "react";
 import { Row, Col, Typography } from "antd";
 
-const { Title, Text } = Typography;
+const { Text } = Typography;
 
-const Info = ({ place, date }) => {
+const Info = ({ place }) => {
   const { precipitation_probability: pp } = place;
+
   let weather;
 
   if (pp < 25) weather = ` ☀️ — ${pp}%`;

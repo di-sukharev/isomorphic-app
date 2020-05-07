@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Layout } from "antd";
-import moment from "moment";
 import Search from "./components/Search";
 import Info from "./components/Info";
 import Map from "./components/Map";
@@ -17,14 +16,16 @@ data.forEach(v => {
   else weather[date] = [v];
 });
 
-const dateKeys = Object.keys(weather); // dates[]
+const dateKeys = Object.keys(weather); // string[]
 const defaultDate = dateKeys[0]; // string
 const defaultPlace = weather[defaultDate][0]; // {}
 // ================
 
 const App = () => {
+  // set date state
   const [dates, setDate] = useState({ selected: defaultDate, all: dateKeys });
 
+  // set place state
   const [places, setPlace] = useState({
     selected: defaultPlace,
     all: weather[defaultDate],
