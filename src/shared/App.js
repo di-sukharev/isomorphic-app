@@ -48,11 +48,11 @@ const App = () => {
   };
 
   const selectedPlace = places.selected;
-  const { lng, ltd } = selectedPlace;
+  const { longitude, latitude } = selectedPlace;
 
   return (
     <Layout>
-      <Header>
+      <Header style={{minHeight: 100}}>
         <Search
           places={places.all}
           dates={dates.all}
@@ -64,7 +64,7 @@ const App = () => {
         <Info place={places.selected} date={dates.selected} />
       </Content>
       <Footer>
-        <Map lng={lng} ltd={ltd} />
+        <Map lng={longitude} ltd={latitude} />
       </Footer>
     </Layout>
   );

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import moment from "moment";
-import { AutoComplete, DatePicker, Row, Col } from "antd";
+import { AutoComplete, DatePicker, Row, Col, Typography } from "antd";
+
+const { Text } = Typography;
 
 const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
   const names = places.map(place => ({
@@ -22,21 +24,24 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
       current > moment(dates[dates.length - 1], "YYYY-MM-DD"));
 
   return (
-    <Row gutter={[20]} justify="center">
-      <Col span={8}>
+    <Row style={{ height: "100%" }} align="middle" justify="center">
+      <Col span={4}>
+        <Text style={{ color: "white", fontSize: 50 }}>Weather</Text>
+      </Col>
+      <Col span={8} offset={2}>
         <AutoComplete
-          autoFocus
+          style={{
+            width: "100%",
+          }}
+          // autoFocus
           // defaultValue={options[0] && options[0].value}
           options={options}
-          style={{
-            width: 300,
-          }}
           onSelect={onPlaceChange}
           onSearch={onSearch}
           placeholder="What is your place?"
         />
       </Col>
-      <Col span={4}>
+      <Col span={4} offset={1}>
         <DatePicker
           disabledDate={disabledDate}
           defaultValue={moment(dates[0], "YYYY-MM-DD")}
