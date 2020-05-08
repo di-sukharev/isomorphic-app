@@ -9,16 +9,15 @@ $ npm install
 $ npm start
 ```
 
-Server starts on [http://localhost:3000](http://localhost:3000), click the link and open your browser.
+Server starts on [http://localhost:3000](http://localhost:3000), open the link in browser.
 
 ## How it works
 
-**Isomorphic app concept** — when browser asks for the first HTML with HTTP GET request, server renders all of the HTML code in SSR mode, attaches `SPA webpack build` of the whole app to the rendered HTML and sends it all back.
-Browser renders full HTML instantly right after response and turns on SPA mode, providing high first-load speed and CSR speed on the rest of the HTML rendering.
+**Isomorphic app** — when browser asks for the first HTML with HTTP GET request, server renders all of the HTML code in SSR mode, attaches `SPA webpack build` of the whole app to the rendered HTML and sends it all back. Browser renders full HTML instantly right after response and turns on SPA mode (through attached SPA bundle), providing high first-load render speed and CSR speed advantages on the rest of the HTML rendering.
 
 1. `webpack.config.js` creates `main.bundle.js`
 2. `./server/ssr.js` compiles isomorphic React.js code into HTML (SSR mode), attaches `main.bundle.js` to the HTML and sends it to the browser HTTP GET request.
-3. browser gets SSR'ed HTML parses attached `main.bundle.js` and enters SPA mode.
+3. browser gets SSR'ed HTML, interpretes attached `main.bundle.js` and enters SPA mode.
 
 ## TODO
 
