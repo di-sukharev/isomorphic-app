@@ -2,7 +2,11 @@
 
 const path = require("path");
 
+const mode = process.env.NODE_ENV || "development";
+
 module.exports = {
+  mode,
+  devtool: mode === "development" ? "eval-source-map" : false,
   entry: {
     main: "./src/client/index.js",
   },
@@ -10,7 +14,6 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "[name].bundle.js",
   },
-  devtool: "eval-source-map",
   module: {
     rules: [
       {
