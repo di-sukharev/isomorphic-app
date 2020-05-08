@@ -21,15 +21,15 @@ Server starts on [http://localhost:3000](http://localhost:3000), open the link i
 
 ## TODO
 
+- [ ] Add tests
+- [ ] Configure babel to import css while in SSR mode
+- [ ] Optimize production build with webpack
 - [ ] Fix emoji encoding on the server side
 - [ ] Remove inline styling
 - [ ] Make data.json parsing smarter, put it out of React components
 - [ ] Configure HMR
-- [ ] Make UI more responsive and beautiful
+- [ ] Make UI responsive and beautiful
 - [ ] Change embed iframe map to JS map
-- [ ] Add tests
 - [ ] Configure browser history context in <StaticRouter/> in SSR mode
-- [ ] Configure babel to import css while in SSR mode
 - [ ] Add typescript
-- [ ] Optimize production build with webpack
 - [ ] Deploy
