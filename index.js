@@ -1,7 +1,3 @@
-require("@babel/register")({
-  ignore: [/\.css$/, /\/(build|node_modules)\//],
-});
-
-require.extensions[".css"] = () => {};
+require("@babel/register");
 
 require("./src/server/index.js");
