@@ -9,7 +9,7 @@ $ npm install
 $ npm start
 ```
 
-Server starts on [http://localhost:3000](http://localhost:3000), open the link in browser.
+Server starts on [http://localhost:3000](http://localhost:3000), open the link in a browser.
 
 ## How it works
 
