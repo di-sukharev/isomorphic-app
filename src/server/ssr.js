@@ -6,6 +6,7 @@ import App from "../shared/App.js";
 import Document from "./document.js";
 
 export default (req, res) => {
+  // todo: context has to work with browser history when using <- and -> (back and forward)
   const context = {};
 
   const html = ReactDOMServer.renderToString(
@@ -16,6 +17,6 @@ export default (req, res) => {
     </Document>
   );
 
-  res.write(html);
+  res.write(`<!DOCTYPE html>${html}`);
   res.end();
 };
