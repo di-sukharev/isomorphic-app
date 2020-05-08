@@ -1,3 +1,5 @@
+// SPA bundling
+
 const path = require("path");
 
 module.exports = {
@@ -12,19 +14,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // remove jsx
+        test: /\.(js)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          // options: {
-          //   plugins: [["import", { libraryName: "antd", libraryDirectory: "es", style: "css" }]],
-          // },
-        },
+        loader: "babel-loader",
       },
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
     ],
-  },
-  resolve: {
-    extensions: [".js", ".css"],
   },
 };

@@ -1,3 +1,5 @@
+// preset-env = es6-8 -> es5
+// preset-react = JSX -> JS
 {
-  "presets": ["@babel/env", "@babel/react"]
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
 }
