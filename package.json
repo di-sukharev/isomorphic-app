@@ -10,8 +10,8 @@
     "start": "webpack --mode development --watch & node index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "jest --env=jsdom",
-    "test:watch": "jest --env=jsdom --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "Dima Sukharev <dima@sukharev.io>",
   "license": "ISC",
@@ -22,7 +22,10 @@
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
+    "babel-polyfill": "^6.26.0",
     "css-loader": "^3.5.3",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.4.4",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -44,6 +47,7 @@
   "dependencies": {
     "@babel/register": "^7.9.0",
     "antd": "^4.2.0",
+    "enzyme": "^3.11.0",
     "express": "^4.17.1",
     "moment": "^2.25.3",
     "morgan": "^1.10.0",
