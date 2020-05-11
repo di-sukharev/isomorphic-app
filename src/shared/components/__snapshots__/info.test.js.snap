@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshots Renders correctly 1`] = `
+<div
+  className="ant-row ant-row-center ant-row-middle"
+  style={
+    Object {
+      "height": "100%",
+      "padding": 20,
+    }
+  }
+>
+  <div
+    className="ant-col ant-col-md-10"
+    style={Object {}}
+  >
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 30,
+        }
+      }
+    >
+      Amsterdam
+    </span>
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 50,
+        }
+      }
+    >
+       🌧️ — 90%
+    </span>
+  </div>
+  <div
+    className="ant-col ant-col-md-8"
+    style={Object {}}
+  >
+    <div
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(to right, #aad4e5, #f06d06)",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 20,
+        }
+      }
+    >
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          min temp: 
+          15.1
+          ˚
+        </strong>
+      </span>
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          max temp: 
+          24.2
+          ˚
+        </strong>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots Renders correctly 2`] = `
+<div
+  className="ant-row ant-row-center ant-row-middle"
+  style={
+    Object {
+      "height": "100%",
+      "padding": 20,
+    }
+  }
+>
+  <div
+    className="ant-col ant-col-md-10"
+    style={Object {}}
+  >
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 30,
+        }
+      }
+    >
+      Maastricht
+    </span>
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 50,
+        }
+      }
+    >
+       🌧️ — 75%
+    </span>
+  </div>
+  <div
+    className="ant-col ant-col-md-8"
+    style={Object {}}
+  >
+    <div
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(to right, #aad4e5, #f06d06)",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 20,
+        }
+      }
+    >
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          min temp: 
+          13.3
+          ˚
+        </strong>
+      </span>
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          max temp: 
+          21.5
+          ˚
+        </strong>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Snapshots Renders correctly 3`] = `
+<div
+  className="ant-row ant-row-center ant-row-middle"
+  style={
+    Object {
+      "height": "100%",
+      "padding": 20,
+    }
+  }
+>
+  <div
+    className="ant-col ant-col-md-10"
+    style={Object {}}
+  >
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 30,
+        }
+      }
+    >
+      Rotterdam
+    </span>
+    <span
+      className="ant-typography"
+      style={
+        Object {
+          "WebkitLineClamp": null,
+          "fontSize": 50,
+        }
+      }
+    >
+       🌧️ — 90%
+    </span>
+  </div>
+  <div
+    className="ant-col ant-col-md-8"
+    style={Object {}}
+  >
+    <div
+      style={
+        Object {
+          "backgroundImage": "linear-gradient(to right, #aad4e5, #f06d06)",
+          "display": "flex",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+          "padding": 20,
+        }
+      }
+    >
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          min temp: 
+          15.0
+          ˚
+        </strong>
+      </span>
+      <span
+        className="ant-typography"
+        style={
+          Object {
+            "WebkitLineClamp": null,
+            "color": "white",
+          }
+        }
+      >
+        <strong>
+          max temp: 
+          24.9
+          ˚
+        </strong>
+      </span>
+    </div>
+  </div>
+</div>
+`;

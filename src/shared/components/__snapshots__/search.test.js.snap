@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Info tests renders correctly 1`] = `
+<Row
+  align="middle"
+  gutter={0}
+  justify="center"
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <Col
+    md={4}
+  >
+    <Text
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 50,
+        }
+      }
+    >
+      Weather
+    </Text>
+  </Col>
+  <Col
+    md={8}
+    offset={2}
+  >
+    <ForwardRef(AutoComplete)
+      onSearch={[Function]}
+      onSelect={[Function]}
+      open={true}
+      options={
+        Array [
+          Object {
+            "value": "Amsterdam",
+          },
+          Object {
+            "value": "Maastricht",
+          },
+          Object {
+            "value": "Rotterdam",
+          },
+          Object {
+            "value": "Enschede",
+          },
+          Object {
+            "value": "Utrecht",
+          },
+          Object {
+            "value": "Den Helder",
+          },
+        ]
+      }
+      placeholder="Enter your city"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </Col>
+  <Col
+    md={4}
+    offset={1}
+  >
+    <Picker
+      defaultValue={"0001-12-31T21:29:43.000Z"}
+      disabledDate={[Function]}
+      onChange={[Function]}
+      placeholder="Enter date"
+    />
+  </Col>
+</Row>
+`;
