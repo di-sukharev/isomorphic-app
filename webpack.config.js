@@ -1,6 +1,5 @@
-// SPA bundling
-
 const path = require("path");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const mode = process.env.NODE_ENV || "development";
 
@@ -24,4 +23,5 @@ module.exports = {
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
     ],
   },
+  // plugins: [new BundleAnalyzerPlugin()],
 };
