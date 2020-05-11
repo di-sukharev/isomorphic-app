@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React from "react";
 import renderer from "react-test-renderer";
-import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import Search from "./Search";
 import "@testing-library/jest-dom/extend-expect";
 
