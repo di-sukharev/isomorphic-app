@@ -5,7 +5,7 @@ import { AutoComplete, DatePicker, Row, Col, Typography } from "antd";
 const { Text } = Typography;
 
 const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
-  const names = places.map(place => ({
+  const names = places.all[dates.selected].map(place => ({
     value: place.place_name,
   }));
 
@@ -20,8 +20,8 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
   // disable non-existing in "data.json" dates in <DatePicker/>
   const disabledDate = current =>
     current &&
-    (current < moment(dates[0], "YYYY-MM-DD") ||
-      current > moment(dates[dates.length - 1], "YYYY-MM-DD"));
+    (current < moment(dates.all[0], "YYYY-MM-DD") ||
+      current > moment(dates.all[dates.all.length - 1], "YYYY-MM-DD"));
 
   return (
     <Row style={{ height: "100%" }} align="middle" justify="center">
@@ -42,7 +42,7 @@ const Search = ({ places, dates, onPlaceChange, onDateChange }) => {
       <Col md={4} offset={1}>
         <DatePicker
           disabledDate={disabledDate}
-          defaultValue={moment(dates[0], "YYYY-MM-DD")}
+          defaultValue={moment(dates.all[0], "YYYY-MM-DD")}
           onChange={onDateChange}
           placeholder="Enter date"
         />

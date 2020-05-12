@@ -7,6 +7,7 @@ import data from "../../data.json";
 
 const { Header, Footer, Content } = Layout;
 
+// todo: move this fabric to /tools/weatherFabric.js
 // ======== converting "data.json" to needed "weather" structure ========
 const weather = {};
 
@@ -28,34 +29,29 @@ const App = () => {
   // set place state
   const [places, setPlace] = useState({
     selected: defaultPlace,
-    all: weather[defaultDate],
+    all: weather,
   });
 
-  // when place changes => we select new place
+  // when place changes => select new place
   const onPlaceChange = place =>
     setPlace(prev => ({
       selected: prev.all.find(v => v.place_name === place),
       all: prev.all,
     }));
 
-  // when date changes => we select new date, change places list to new weather[date] & select new place in the changed list
+  // when date changes => select new date, change places list to new weather[date] and select new place in the changed list
   const onDateChange = date => {
-    const dateFormated = date.format("YYYY-MM-DD");
-    setDate(prev => ({ selected: dateFormated, all: prev.all }));
-    setPlace(prev => ({
-      selected: weather[dateFormated].find(v => v.place_name === prev.selected.place_name),
-      all: weather[dateFormated],
-    }));
+    console.log({ date });
+    setDate(prev => ({ selected: date.format("YYYY-MM-DD"), all: prev.all }));
   };
-
   const selectedPlace = places.selected;
   const { longitude, latitude } = selectedPlace;
   return (
     <Layout style={{ height: "100vh" }}>
       <Header style={{ minHeight: "20%" }}>
         <Search
-          places={places.all}
-          dates={dates.all}
+          places={places}
+          dates={dates}
           onPlaceChange={onPlaceChange}
           onDateChange={onDateChange}
         />
