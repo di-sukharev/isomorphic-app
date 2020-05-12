@@ -102,8 +102,8 @@ exports[`Snapshots Renders correctly 1`] = `
           placeholder="Enter date"
           readOnly={true}
           size={12}
-          title="0002-01-01"
-          value="0002-01-01"
+          title="2014-08-08"
+          value="2014-08-08"
         />
         <span
           className="ant-picker-suffix"

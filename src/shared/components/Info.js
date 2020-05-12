@@ -3,7 +3,7 @@ import { Row, Col, Typography } from "antd";
 
 const { Text } = Typography;
 
-const Info = ({ place }) => {
+const Info = ({ place, date }) => {
   const { precipitation_probability: pp } = place;
 
   let weather;
@@ -16,7 +16,12 @@ const Info = ({ place }) => {
   return (
     <Row style={{ height: "100%", padding: 20 }} align="middle" justify="center">
       <Col md={10}>
-        <Text style={{ fontSize: 30 }}>{place.place_name}</Text>
+        <Text data-testid="date" style={{ fontSize: 30 }}>
+          {date}
+        </Text>
+        <Text data-testid="place" style={{ fontSize: 30 }}>
+          {place.place_name}
+        </Text>
         <Text style={{ fontSize: 50 }}>{weather}</Text>
       </Col>
       <Col md={8}>
