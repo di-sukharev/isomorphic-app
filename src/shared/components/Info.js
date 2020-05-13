@@ -3,28 +3,28 @@ import { Row, Col, Typography } from "antd";
 
 const { Text } = Typography;
 
-const Info = ({ place, date }) => {
-  const { precipitation_probability: pp } = place;
+const Info = ({ place = {}, date }) => {
+  const { precipitation_probability: pp = null } = place;
 
   let weather;
-
-  if (pp < 25) weather = ` ☀️ — ${pp}%`;
-  else if (pp < 50) weather = ` ⛅ — ${pp}%`;
-  else if (pp < 75) weather = ` ☁️ — ${pp}%`;
-  else if (pp < 100) weather = ` 🌧️ — ${pp}%`;
+  if (!pp) weather = "no emoji";
+  else if (pp < 25) weather = ` ☀️${pp}% `;
+  else if (pp < 50) weather = ` ⛅${pp}% `;
+  else if (pp < 75) weather = ` ☁️${pp}% `;
+  else if (pp < 100) weather = ` 🌧️${pp}% `;
 
   return (
     <Row style={{ height: "100%", padding: 20 }} align="middle" justify="center">
-      <Col md={10}>
+      <Col md={14}>
         <Text data-testid="date" style={{ fontSize: 30 }}>
           {date}
         </Text>
-        <Text data-testid="place" style={{ fontSize: 30 }}>
-          {place.place_name}
-        </Text>
         <Text style={{ fontSize: 50 }}>{weather}</Text>
+        <Text data-testid="place" style={{ fontSize: 30 }}>
+          {place.place_name || "No weather for this place and date"}
+        </Text>
       </Col>
-      <Col md={8}>
+      <Col md={6}>
         <div
           style={{
             backgroundImage: "linear-gradient(to right, #aad4e5, #f06d06)",
