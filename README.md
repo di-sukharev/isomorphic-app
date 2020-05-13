@@ -19,6 +19,12 @@ Server starts on [http://localhost:3000](http://localhost:3000), open the link i
 2. `./server/ssr.js` compiles isomorphic React.js code into HTML (SSR mode), attaches `main.bundle.js` to the HTML and sends it to the browser HTTP GET request.
 3. browser gets SSR'ed HTML, interpretes attached `main.bundle.js` and enters SPA mode.
 
+## Files structure
+
+- `/client` — browser code
+- `/server` — server code
+- `/shared` — isomorphic react code
+
 ## TODO
 
 - [x] Configure HMR
