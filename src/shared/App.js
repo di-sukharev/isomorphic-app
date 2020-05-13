@@ -17,47 +17,27 @@ data.forEach(v => {
   else weather[date] = [v];
 });
 
-const dateKeys = Object.keys(weather); // string[]
-const defaultDate = dateKeys[0]; // string
-const defaultPlace = weather[defaultDate][0]; // {}
 // ================
 
 const App = () => {
+  const dates = Object.keys(weather).sort(); // string[]
+  const defaultDate = dates[0]; // string
+  const defaultPlace = weather[defaultDate][0]; // {}
+
   // set date state
-  const [dates, setDate] = useState({ selected: defaultDate, all: dateKeys });
-
+  const [date, setDate] = useState(defaultDate);
   // set place state
-  const [places, setPlace] = useState({
-    selected: defaultPlace,
-    all: weather,
-  });
+  const [place, setPlace] = useState(defaultPlace);
 
-  // when place changes => select new place
-  const onPlaceChange = place =>
-    setPlace(prev => ({
-      selected: prev.all.find(v => v.place_name === place),
-      all: prev.all,
-    }));
+  const { longitude = 0, latitude = 0 } = place || {};
 
-  // when date changes => select new date, change places list to new weather[date] and select new place in the changed list
-  const onDateChange = date => {
-    console.log({ date });
-    setDate(prev => ({ selected: date.format("YYYY-MM-DD"), all: prev.all }));
-  };
-  const selectedPlace = places.selected;
-  const { longitude, latitude } = selectedPlace;
   return (
     <Layout style={{ height: "100vh" }}>
       <Header style={{ minHeight: "20%" }}>
-        <Search
-          places={places}
-          dates={dates}
-          onPlaceChange={onPlaceChange}
-          onDateChange={onDateChange}
-        />
+        <Search weather={weather} onPlaceChange={setPlace} onDateChange={setDate} />
       </Header>
       <Content style={{ minHeight: "20%" }}>
-        <Info place={places.selected} date={dates.selected} />
+        <Info place={place} date={date} />
       </Content>
       <Footer style={{ padding: 0, minHeight: "60%" }}>
         <Map lng={longitude} ltd={latitude} />

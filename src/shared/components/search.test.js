@@ -1,7 +1,6 @@
 /* eslint-disable camelcase */
 import React from "react";
-import renderer from "react-test-renderer";
-import { render, fireEvent, waitFor, cleanup } from "@testing-library/react";
+import { render, rerender, fireEvent, waitFor, cleanup } from "@testing-library/react";
 import Search from "./Search";
 
 import data from "../../../data.json";
@@ -15,32 +14,29 @@ data.forEach(v => {
   else weather[date] = [v];
 });
 
-const dateKeys = Object.keys(weather); // string[]
-const defaultDate = dateKeys[0]; // string
-const defaultPlace = weather[defaultDate][0]; // {}
+// const dateKeys = Object.keys(weather).sort(); // string[]
+// const defaultDate = dateKeys[0]; // string
+// const defaultPlace = weather[defaultDate][0]; // {}
 // ================
 
-const FAKE_DATES = { selected: defaultDate, all: dateKeys };
-const FAKE_PLACES = { selected: defaultPlace, all: weather };
+let FAKE_WEATHER = {};
 
-describe("Kind of integration (not really) test of <AutoComplete/> and <DatePicker/> in <Search/> together", () => {
+describe("Integration tests of <AutoComplete/> and <DatePicker/> in <Search/> together", () => {
+  beforeEach(() => {
+    FAKE_WEATHER = weather;
+  });
+
   afterEach(cleanup);
 
-  it("takes callbacks and calls them with values when selected", async () => {
-    let placeChangeCalledTimes = 0;
-    let dateChangeCalledTimes = 0;
+  it("When date changed it changes place as well", async () => {
     const onPlaceChange = jest.fn();
     const onDateChange = jest.fn();
     const { getByText, getByRole, getByPlaceholderText, getByTitle } = render(
-      <Search
-        places={FAKE_PLACES}
-        dates={FAKE_DATES}
-        onPlaceChange={onPlaceChange}
-        onDateChange={onDateChange}
-      />
+      <Search weather={FAKE_WEATHER} onPlaceChange={onPlaceChange} onDateChange={onDateChange} />
     );
 
-    const testPlace = async place => {
+    const selectPlace = async place => {
+      fireEvent.mouseDown(getByRole(/combobox/i)); // open popup
       fireEvent.change(getByRole(/combobox/i), { target: { value: place } });
       let option = null;
       await waitFor(() => {
@@ -50,32 +46,47 @@ describe("Kind of integration (not really) test of <AutoComplete/> and <DatePick
       });
 
       fireEvent.click(option);
-      expect(onPlaceChange).toHaveBeenCalledWith(place, { value: place });
-      expect(onPlaceChange).toHaveBeenCalledTimes(++placeChangeCalledTimes);
     };
 
-    const testDate = async date => {
-      fireEvent.click(getByPlaceholderText(/Enter date/i));
+    const selectDate = async date => {
+      const DatePicker = getByPlaceholderText(/Enter date/i);
+      fireEvent.mouseDown(DatePicker); // open popup
 
       let option = null;
       await waitFor(() => {
         option = getByTitle(date);
       });
 
-      fireEvent.click(option); // todo: CLICK DOESN'T WORK
-      expect(onDateChange).toHaveBeenCalledWith(date, { value: date });
-      expect(onDateChange).toHaveBeenCalledTimes(++dateChangeCalledTimes);
+      fireEvent.click(option);
     };
 
-    // testing autocomplete
-    await testPlace("Maastricht");
-    await testPlace("Amsterdam");
-    await testPlace("Enschede");
-
-    // testing date picker
-    await testDate("2014-08-08");
-    await testDate("2014-08-10");
-    await testDate("2014-08-11");
-    await testDate("2014-08-12");
+    await selectDate("2014-08-09");
+    expect(onDateChange).toHaveBeenCalledTimes(1);
+    expect(onPlaceChange).toHaveBeenCalledTimes(1);
+    expect(onPlaceChange).toHaveBeenCalledWith(undefined);
+    await selectPlace("Maastricht");
+    expect(onPlaceChange).toHaveBeenCalledWith(
+      FAKE_WEATHER["2014-08-09"].find(p => p.place_name === "Maastricht")
+    );
+    expect(onPlaceChange).toHaveBeenCalledTimes(2);
+    await selectDate("2014-08-12");
+    expect(onDateChange).toHaveBeenCalledTimes(2);
+    expect(onDateChange).toHaveBeenCalledWith("2014-08-12");
+    expect(onPlaceChange).toHaveBeenCalledWith(
+      FAKE_WEATHER["2014-08-12"].find(p => p.place_name === "Maastricht")
+    );
+    expect(onPlaceChange).toHaveBeenCalledTimes(3);
+    await selectPlace("Amsterdam");
+    expect(onPlaceChange).toHaveBeenCalledWith(
+      FAKE_WEATHER["2014-08-12"].find(p => p.place_name === "Amsterdam")
+    );
+    expect(onPlaceChange).toHaveBeenCalledTimes(4);
+    await selectDate("2014-08-10");
+    expect(onDateChange).toHaveBeenCalledTimes(3);
+    expect(onDateChange).toHaveBeenCalledWith("2014-08-10");
+    expect(onPlaceChange).toHaveBeenCalledWith(
+      FAKE_WEATHER["2014-08-10"].find(p => p.place_name === "Amsterdam")
+    );
+    expect(onPlaceChange).toHaveBeenCalledTimes(5);
   });
 });
