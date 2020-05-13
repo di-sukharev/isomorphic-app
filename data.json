@@ -15,17 +15,6 @@
     "place_name": "Amsterdam",
     "latitude": 52.3,
     "longitude": 4.766667,
-    "datetime": "2014-08-09 00:00:00",
-    "temperature_max": "23.0",
-    "temperature_min": "16.7",
-    "precipitation_probability": "70",
-    "precipitation_mm": "3.3"
-  },
-  {
-    "station_id": 1438,
-    "place_name": "Amsterdam",
-    "latitude": 52.3,
-    "longitude": 4.766667,
     "datetime": "2014-08-10 00:00:00",
     "temperature_max": "25.6",
     "temperature_min": "14.8",
