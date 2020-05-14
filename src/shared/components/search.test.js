@@ -1,29 +1,14 @@
 /* eslint-disable camelcase */
 import React from "react";
-import { render, rerender, fireEvent, waitFor, cleanup } from "@testing-library/react";
+import { render, fireEvent, waitFor, cleanup } from "@testing-library/react";
 import Search from "./Search";
-
-import data from "../../../data.json";
-
-// ======== converting "data.json" to needed "weather" structure ========
-const weather = {};
-
-data.forEach(v => {
-  const [date] = v.datetime.split(" ");
-  if (weather[date]) weather[date].push(v);
-  else weather[date] = [v];
-});
-
-// const dateKeys = Object.keys(weather).sort(); // string[]
-// const defaultDate = dateKeys[0]; // string
-// const defaultPlace = weather[defaultDate][0]; // {}
-// ================
-
-let FAKE_WEATHER = {};
+import WEATHER from "../../data";
 
 describe("Integration tests of <AutoComplete/> and <DatePicker/> in <Search/> together", () => {
+  let FAKE_WEATHER = null;
+
   beforeEach(() => {
-    FAKE_WEATHER = weather;
+    FAKE_WEATHER = WEATHER;
   });
 
   afterEach(cleanup);
@@ -31,6 +16,7 @@ describe("Integration tests of <AutoComplete/> and <DatePicker/> in <Search/> to
   it("When date changed it changes place as well", async () => {
     const onPlaceChange = jest.fn();
     const onDateChange = jest.fn();
+    console.log({ FAKE_WEATHER });
     const { getByText, getByRole, getByPlaceholderText, getByTitle } = render(
       <Search weather={FAKE_WEATHER} onPlaceChange={onPlaceChange} onDateChange={onDateChange} />
     );
