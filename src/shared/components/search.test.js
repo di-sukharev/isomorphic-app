@@ -60,32 +60,38 @@ describe("Integration tests of <AutoComplete/> and <DatePicker/> in <Search/> to
       fireEvent.click(option);
     };
 
-    await selectDate("2014-08-09");
+    const DATE_2014_08_09 = "2014-08-09";
+    const DATE_2014_08_10 = "2014-08-10";
+    const DATE_2014_08_12 = "2014-08-12";
+    const Maastricht = "Maastricht";
+    const Amsterdam = "Amsterdam";
+
+    await selectDate(DATE_2014_08_09);
     expect(onDateChange).toHaveBeenCalledTimes(1);
     expect(onPlaceChange).toHaveBeenCalledTimes(1);
     expect(onPlaceChange).toHaveBeenCalledWith(undefined);
-    await selectPlace("Maastricht");
+    await selectPlace(Maastricht);
     expect(onPlaceChange).toHaveBeenCalledWith(
-      FAKE_WEATHER["2014-08-09"].find(p => p.place_name === "Maastricht")
+      FAKE_WEATHER[DATE_2014_08_09].find(p => p.place_name === Maastricht)
     );
     expect(onPlaceChange).toHaveBeenCalledTimes(2);
-    await selectDate("2014-08-12");
+    await selectDate(DATE_2014_08_12);
     expect(onDateChange).toHaveBeenCalledTimes(2);
-    expect(onDateChange).toHaveBeenCalledWith("2014-08-12");
+    expect(onDateChange).toHaveBeenCalledWith(DATE_2014_08_12);
     expect(onPlaceChange).toHaveBeenCalledWith(
-      FAKE_WEATHER["2014-08-12"].find(p => p.place_name === "Maastricht")
+      FAKE_WEATHER[DATE_2014_08_12].find(p => p.place_name === Maastricht)
     );
     expect(onPlaceChange).toHaveBeenCalledTimes(3);
-    await selectPlace("Amsterdam");
+    await selectPlace(Amsterdam);
     expect(onPlaceChange).toHaveBeenCalledWith(
-      FAKE_WEATHER["2014-08-12"].find(p => p.place_name === "Amsterdam")
+      FAKE_WEATHER[DATE_2014_08_12].find(p => p.place_name === Amsterdam)
     );
     expect(onPlaceChange).toHaveBeenCalledTimes(4);
-    await selectDate("2014-08-10");
+    await selectDate(DATE_2014_08_10);
     expect(onDateChange).toHaveBeenCalledTimes(3);
-    expect(onDateChange).toHaveBeenCalledWith("2014-08-10");
+    expect(onDateChange).toHaveBeenCalledWith(DATE_2014_08_10);
     expect(onPlaceChange).toHaveBeenCalledWith(
-      FAKE_WEATHER["2014-08-10"].find(p => p.place_name === "Amsterdam")
+      FAKE_WEATHER[DATE_2014_08_10].find(p => p.place_name === Amsterdam)
     );
     expect(onPlaceChange).toHaveBeenCalledTimes(5);
   });
