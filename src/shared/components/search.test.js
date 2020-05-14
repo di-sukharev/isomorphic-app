@@ -16,7 +16,6 @@ describe("Integration tests of <AutoComplete/> and <DatePicker/> in <Search/> to
   it("When date changed it changes place as well", async () => {
     const onPlaceChange = jest.fn();
     const onDateChange = jest.fn();
-    console.log({ FAKE_WEATHER });
     const { getByText, getByRole, getByPlaceholderText, getByTitle } = render(
       <Search weather={FAKE_WEATHER} onPlaceChange={onPlaceChange} onDateChange={onDateChange} />
     );
